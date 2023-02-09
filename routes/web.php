@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('download/{post}', [PostController::class, 'download']);
+Route::get('downloads', [PostController::class, 'downloads']);
+Route::get('res-image/{post}', [PostController::class, 'resImage']);
+Route::resource('posts', PostController::class);
